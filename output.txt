@@ -1,0 +1,392 @@
+ITEMS:
+  Found 25 items:
+
+  COLUMN TYPES FOUND:
+    - color_mkrbrgx9 (status)
+    - date_mkrbab30 (date)
+    - label_mknc7chz (dropdown)
+    - link_mkncp8tr (link)
+    - link_mkrbbns3 (link)
+    - link_mkrbfssd (link)
+    - long_text_mkrcq3cj (long_text)
+    - subtasks_mkngh9fb (subtasks)
+    - text_mkrc1xt4 (text)
+    - text_mkrch5f2 (text)
+    - text_mkrcnqvg (text)
+    - text_mkrcr78s (text)
+
+  📋 ITEM: Test Project 1
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Empty
+       • color_mkrbrgx9 (status): UPDATE NEEDED
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): Empty
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: Test Project 2
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Empty
+       • color_mkrbrgx9 (status): UPDATE NEEDED
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): Empty
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: Test Project 3
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Empty
+       • color_mkrbrgx9 (status): UPDATE NEEDED
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): Empty
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: Test Project 4
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Empty
+       • color_mkrbrgx9 (status): UPDATE NEEDED
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): Empty
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: dalepollak.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): http://dalepollak.com/
+       • link_mkrbfssd (link): https://dashboard.pantheon.io/sites/1e4638f7-90f2-48f4-adfa-96666cac9921#dev/code
+       • text_mkrcr78s (text): /wp-admin/
+       • link_mkncp8tr (link): COXDP-6 - https://themxgroup.atlassian.net/browse/COXDP-6
+       • text_mkrcnqvg (text): 25-MW-3181
+       • long_text_mkrcq3cj (long_text): SOW is complete
+in June
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: gradingguide.cgccomics.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UPDATE NEEDED
+       • date_mkrbab30 (date): 2025-04-29
+       • text_mkrch5f2 (text): 6.8.0
+       • link_mkrbbns3 (link): http://gradingguide.cgccomics.com/
+       • link_mkrbfssd (link): https://dashboard.pantheon.io/sites/6c2e5e4b-46a4-410c-8ba8-06e6d18e745e#dev/code
+       • text_mkrcr78s (text): /wp-admin/
+       • link_mkncp8tr (link): Empty
+       • text_mkrcnqvg (text): 25-CCG-1020
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: Forge Maintenance
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): FB-196 - https://themxgroup.atlassian.net/browse/FB-196
+       • text_mkrcnqvg (text): 25-FOR-0005
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: Forge Performance Tuning & Optimization
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UPDATE NEEDED
+       • date_mkrbab30 (date): Empty
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): Empty
+       • text_mkrcnqvg (text): 25-FOR-0006
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: Forge Development Support Retainer
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UPDATE NEEDED
+       • date_mkrbab30 (date): Empty
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): Empty
+       • text_mkrcnqvg (text): 25-FOR-0004
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: https://360marketingsupport.hfsinclair.com/
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-05-28
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): https://360marketingsupport.hfsinclair.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): /wp-admin/
+       • link_mkncp8tr (link): boards/509 - https://themxgroup.atlassian.net/jira/software/projects/HFS/boards/509
+       • text_mkrcnqvg (text): 25-HFL-0530-ful
+       • long_text_mkrcq3cj (long_text): woocommerce
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: hpccsystems.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): http://hpccsystems.com/
+       • link_mkrbfssd (link): https://my.wpengine.com/installs/hpccsystems
+       • text_mkrcr78s (text): /hpcc-login/
+       • link_mkncp8tr (link): LHPCC-8 - https://themxgroup.atlassian.net/browse/LHPCC-8
+       • text_mkrcnqvg (text): 25-LNR-0015
+       • long_text_mkrcq3cj (long_text): in clients wpengine instance
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: Monthly Maintenance, Ad Hoc Requests, & Emergent Support (copy)
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Anthony
+       • color_mkrbrgx9 (status): Empty
+       • date_mkrbab30 (date): Empty
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): boards/620 - https://themxgroup.atlassian.net/jira/software/c/projects/MTSW/boards/620
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: https://starcsystems.com/
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-29
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): https://starcsystems.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): STARC-122 - https://themxgroup.atlassian.net/browse/STARC-122
+       • text_mkrcnqvg (text): 25-STA-0070
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: go.speedship.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): http://go.speedship.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): /wp-admin/
+       • link_mkncp8tr (link): WO-24 - https://themxgroup.atlassian.net/browse/WO-24
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: wwexgroup.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-29
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): https://wwexgroup.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): /mothership
+       • link_mkncp8tr (link): WO-32 - https://themxgroup.atlassian.net/browse/WO-32
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: globaltranzagents.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-29
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): https://www.globaltranzagents.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): /mothership
+       • link_mkncp8tr (link): WO-40 - https://themxgroup.atlassian.net/browse/WO-40
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: unishippersfranchise.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-29
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): https://www.unishippersfranchise.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): /mothership
+       • link_mkncp8tr (link): WO-48 - https://themxgroup.atlassian.net/browse/WO-48
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: globaltranz.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): https://www.globaltranz.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): /mothership
+       • link_mkncp8tr (link): WO-56 - https://themxgroup.atlassian.net/browse/WO-56
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Multisite network
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: wwex.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): https://wwex.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): /mothership
+       • link_mkncp8tr (link): WO-64 - https://themxgroup.atlassian.net/browse/WO-64
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Multisite network
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: unishippers.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): https://www.unishippers.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): /mothership
+       • link_mkncp8tr (link): WO-72 - https://themxgroup.atlassian.net/browse/WO-72
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Multisite network
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: profitprotect.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-29
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): http://profitprotect.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): WO-80 - https://themxgroup.atlassian.net/browse/WO-80
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: https://www.shipblx.com/
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-29
+       • text_mkrch5f2 (text): 6.8.1
+       • link_mkrbbns3 (link): http://profitprotect.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): WO-88 - https://themxgroup.atlassian.net/browse/WO-88
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: https://www.jearlogistics.com/
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UPDATE NEEDED
+       • date_mkrbab30 (date): Empty
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): https://www.jearlogistics.com/
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): WO-169 - https://themxgroup.atlassian.net/browse/WO-169
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Not yet live
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: Performance Tuning and Optimization
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Dave
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-15
+       • text_mkrch5f2 (text): Empty
+       • link_mkrbbns3 (link): Empty
+       • link_mkrbfssd (link): Empty
+       • text_mkrcr78s (text): Empty
+       • link_mkncp8tr (link): WO-96 - https://themxgroup.atlassian.net/browse/WO-96
+       • text_mkrcnqvg (text): Empty
+       • long_text_mkrcq3cj (long_text): Empty
+       • text_mkrc1xt4 (text): Empty
+     --------------------------------------------------
+  📋 ITEM: atlastube.com
+     Column Values:
+       • subtasks_mkngh9fb (subtasks): Empty
+       • label_mknc7chz (dropdown): Anthony
+       • color_mkrbrgx9 (status): UP TO DATE
+       • date_mkrbab30 (date): 2025-07-29
+       • text_mkrch5f2 (text): 6.8.2
+       • link_mkrbbns3 (link): https://www.atlastube.com/
+       • link_mkrbfssd (link): https://dashboard.pantheon.io/sites/43bb0eda-054c-47a3-9bd7-b725e66b2b63#dev/code
+       • text_mkrcr78s (text): /wp-admin/
+       • link_mkncp8tr (link): ZAT-165 - https://themxgroup.atlassian.net/browse/ZAT-165
+       • text_mkrcnqvg (text): 25-ZI-6480
+       • long_text_mkrcq3cj (long_text): 2x/Month
+       • text_mkrc1xt4 (text): Empty

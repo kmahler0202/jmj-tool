@@ -11,49 +11,18 @@ load_dotenv()
 
 JIRA_API_TOKEN = os.getenv('JIRA_API_TOKEN')
 MONDAY_API_TOKEN = os.getenv('MONDAY_API_TOKEN')
+MONDAY_MAINTENCE_BOARD_ID = os.getenv('MONDAY_MAINTENCE_BOARD_ID')
+MONDAY_DX_RESOURCING_BOARD_ID = os.getenv('MONDAY_DX_RESOURCING_BOARD_ID')  
 
 
 
-def test_jira_api():
-    email = 'kmahler@themxgroup.com'
-    domain = 'themxgroup-team.atlassian.net'
-    
-    # Replace this with your actual board ID
-    board_id = "1"  # You'll need to replace this with your actual board ID
 
-    credentials = f"{email}:{JIRA_API_TOKEN}"
-    token = base64.b64encode(credentials.encode()).decode()
-
-    headers = {
-        'Authorization': f'Basic {token}',
-        'Accept': 'application/json'
-    }
-
-    # First, let's get all boards to find the right board ID
-    boards_url = f'https://{domain}/rest/agile/1.0/board'
-    print("Getting all boards...")
-    response = requests.get(boards_url, headers=headers)
-    
-    if response.status_code == 200:
-        boards_data = response.json()
-        print("Available boards:")
-        for board in boards_data.get('values', []):
-            print(f"Board ID: {board['id']}, Name: {board['name']}, Type: {board['type']}")
-        
-        # If you know your board ID, uncomment and modify the lines below:
-        # board_id = "YOUR_BOARD_ID_HERE"  # Replace with actual board ID
-        # get_board_issues(domain, headers, board_id)
-        
-    else:
-        print("Error getting boards:", response.status_code, response.text)
-
-
-def get_board_issues(domain, headers, board_id):
+def get_board_issues(domain, headers, auth, board_id):
     """Get all issues from a specific board"""
     issues_url = f'https://{domain}/rest/agile/1.0/board/{board_id}/issue'
     
     print(f"\nGetting issues from board {board_id}...")
-    response = requests.get(issues_url, headers=headers)
+    response = requests.get(issues_url, headers=headers, auth=auth)
     
     if response.status_code == 200:
         issues_data = response.json()
@@ -148,7 +117,7 @@ def change_board_status(item_id, board_id, status):
         return False
 
 
-def get_item_id_by_name(item_name, board_ids=[9244201387, 9244201551]):
+def get_item_id_by_name(item_name, board_ids=[MONDAY_MAINTENCE_BOARD_ID, MONDAY_DX_RESOURCING_BOARD_ID]):
     """
     Helper function to get an item ID by its name.
     
@@ -165,8 +134,21 @@ def get_item_id_by_name(item_name, board_ids=[9244201387, 9244201551]):
         'Content-Type': 'application/json'
     }
     
-    board_ids_str = str(board_ids).replace("'", "")
-    query = f'{{boards(ids:{board_ids_str}) {{ items_page {{ items {{ id name }} }} }} }}'
+    board_ids_str = f'[{", ".join(str(bid) for bid in board_ids)}]'
+    # query = f'{{boards(ids:{board_ids_str}) {{ items_page {{ items {{ id name }} }} }} }}'
+
+    query = f"""
+    {{
+    boards(ids:[{MONDAY_MAINTENCE_BOARD_ID}, {MONDAY_DX_RESOURCING_BOARD_ID}]) {{
+            items_page {{
+                items {{
+                    id
+                    name
+            }}
+        }}
+    }}
+    }}
+    """
     
     data = {'query': query}
     response = requests.post(url=monday_url, json=data, headers=headers)
@@ -204,7 +186,25 @@ def test_monday_api():
     }
 
     # Simple working query based on the original structure
-    query = '{boards(ids:[9244201387, 9244201551]) { name id description items_page { items { name column_values{id type text } } } } }'
+    # query = f"{boards(ids:[{MONDAY_MAINTENCE_BOARD_ID}, {MONDAY_DX_RESOURCING_BOARD_ID}]) { name id description items_page { items { name column_values{id type text } } } } }"
+
+    query = f"""
+    boards(ids:[{MONDAY_MAINTENCE_BOARD_ID}, {MONDAY_DX_RESOURCING_BOARD_ID}]) {{
+        name
+        id
+        description
+        items_page {{
+            items {{
+                name
+                column_values {{
+                    id
+                    type
+                    text
+                }}
+            }}
+        }}
+    }}
+    """
     
     data = {'query': query}
     response = requests.post(url=monday_url, json=data, headers=headers)
@@ -270,14 +270,16 @@ def test_monday_api():
         print(f"Error: {response.status_code}")
         print(f"Response: {response.text}")
 
-
-if __name__ == "__main__":
-    #test_jira_api()
-    item_name = "Test Project 1"
+def update_monday_maintence_board(item_name, new_status, board_id=MONDAY_MAINTENCE_BOARD_ID):
     item_id = get_item_id_by_name(item_name)
-    board_id = 9244201387
     if item_id:
         print(f"Item ID for '{item_name}': {item_id}")
-        change_board_status(item_id, board_id, 'UP TO DATE')
+        change_board_status(item_id, board_id, new_status)
     else:
         print(f"Item '{item_name}' not found")
+
+if __name__ == "__main__":
+    test_jira_api()
+    item_name = "Test Project 4"
+    new_status = "UPDATE NEEDED"
+    update_monday_maintence_board(item_name, new_status)

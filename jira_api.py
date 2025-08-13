@@ -1,7 +1,13 @@
 import requests
 import time
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 API_URL = "https://api.atlassian.com"
+
+JIRA_API_BASE = f"{API_URL}/ex/jira/{os.getenv('ATLASSIAN_CLOUD_ID')}/rest/agile/1.0/issue"
 
 class JiraWatcher:
     def __init__(self, access_token, cloud_id):
@@ -17,7 +23,7 @@ class JiraWatcher:
     def get_issue(self, issue_key):
         """Fetches details for a specific issue."""
         # Using Jira Cloud Platform API v3 for issues
-        url = f"{API_URL}/ex/jira/{self.cloud_id}/rest/agile/1.0/issue/{issue_key}"
+        url = f"{JIRA_API_BASE}/{issue_key}"
         response = requests.get(url, headers=self.headers)
         if response.status_code == 401:
             print("\n❌ Unauthorized. Your access token may have expired. Please re-authenticate.")
@@ -57,3 +63,7 @@ class JiraWatcher:
             except KeyboardInterrupt:
                 print("\n🛑 Watcher stopped by user.")
                 break
+
+
+    # def get_subtasks(self, parent_key: str):
+        

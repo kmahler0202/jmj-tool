@@ -9,7 +9,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-JIRA_API_TOKEN = os.getenv('JIRA_API_TOKEN')
 MONDAY_API_TOKEN = os.getenv('MONDAY_API_TOKEN')
 MONDAY_MAINTENCE_BOARD_ID = os.getenv('MONDAY_MAINTENCE_BOARD_ID')
 MONDAY_DX_RESOURCING_BOARD_ID = os.getenv('MONDAY_DX_RESOURCING_BOARD_ID')  
@@ -278,8 +277,66 @@ def update_monday_maintence_board(item_name, new_status, board_id=MONDAY_MAINTEN
     else:
         print(f"Item '{item_name}' not found")
 
+def get_all_jira_issue(board_id):
+    """
+    Fetch all Jira issues from the Maintenance board.
+    Looks inthe 'link_mkncp8tr' column for the Jira Issue ID.
+    """
+
+    monday_url = 'https://api.monday.com/v2'
+    headers = {
+        'Authorization': f"{MONDAY_API_TOKEN}",
+        'Content-Type': 'application/json'
+    }
+    query = f"""
+    {{
+            boards(ids:[{board_id}]) {{
+            name
+            id
+            items_page {{
+                items {{
+                    name
+                    column_values(ids:["link_mkncp8tr"]) {{
+                        id
+                        text
+                    }}
+                }}
+            }}
+        }}
+    }}
+    """
+
+    data = {'query': query}
+    response = requests.post(url=monday_url, json=data, headers=headers)
+
+    if response.status_code != 200:
+        print(f"❌ Error: {response.status_code}")
+        print(response.text)
+        return []
+
+    result = response.json()
+    boards = result.get('data', {}).get('boards', [])
+    jira_ids = []
+
+    for board in boards:
+        print(f"\n📋 Board: {board['name']} (ID: {board['id']})")
+        for item in board.get('items_page', {}).get('items', []):
+            link_value = item.get('column_values', [{}])[0].get('text', '')
+            if link_value:
+                # Many are in the format "WO-40 - https://..."
+                issue_key = link_value.split()[0] if " " in link_value else link_value
+                jira_ids.append(issue_key)
+                print(f"  - {item['name']}: {issue_key}")
+            else:
+                print(f"  - {item['name']}: No Jira ID found")
+
+    return jira_ids
+    
+    
+
 if __name__ == "__main__":
-    test_jira_api()
-    item_name = "Test Project 4"
-    new_status = "UPDATE NEEDED"
-    update_monday_maintence_board(item_name, new_status)
+    # item_name = "Test Project 4"
+    # new_status = "UPDATE NEEDED"
+    # update_monday_maintence_board(item_name, new_status)
+    print("\nAll Jira IDs:", get_all_jira_issue(MONDAY_MAINTENCE_BOARD_ID))
+

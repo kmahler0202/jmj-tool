@@ -32,7 +32,7 @@ REDIRECT_URI = os.getenv("ATLASSIAN_REDIRECT_URI")
 AUTH_URL = "https://auth.atlassian.com/authorize"
 TOKEN_URL = "https://auth.atlassian.com/oauth/token"
 API_URL = "https://api.atlassian.com"
-SCOPES = "read:board-scope:jira-software read:project:jira read:issue:jira-software"
+SCOPES = "read:board-scope:jira-software read:project:jira read:issue:jira-software read:issue:jira read:project.component:jira read:issue-meta:jira"
 
 @app.route('/')
 def home(supports_credentials=True):
@@ -143,6 +143,67 @@ def watch_issue(issue_key):
         return jsonify({'message': f'Started watching issue {issue_key} in the background.'})
     except ValueError as e:
         return jsonify({'error': str(e)}), 400
+
+
+@app.route("/resources")
+def view_accessible_resources():
+    """
+    View all accessible resources for the current OAuth token.
+    This is useful to confirm scopes and cloud IDs.
+    """
+    access_token = session.get("access_token")
+    if not access_token:
+        return redirect("/auth")
+
+    url = "https://api.atlassian.com/oauth/token/accessible-resources"
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Accept": "application/json"
+    }
+
+    resp = requests.get(url, headers=headers)
+    if resp.status_code != 200:
+        return jsonify({"error": resp.text}), resp.status_code
+
+    resources = resp.json()
+    return jsonify(resources)
+
+
+
+# Test one is COXDP-6
+@app.route('/subtasks/<string:parent_key>')
+def get_subtasks(parent_key):
+    """
+    Returns all subtasks for the given parent Jira issue key.
+    Uses the Jira Cloud REST API v3 with the existing OAuth token and cloud_id from session.
+    """
+    access_token = session.get('access_token')
+    cloud_id = session.get('cloud_id')
+
+    if not access_token or not cloud_id:
+        return redirect('/auth')
+
+    headers = {
+        'Authorization': f'Bearer {access_token}',
+        'Accept': 'application/json'
+    }
+
+    # JQL query: parent = "<parent_key>"
+    jql = f'parent="{parent_key}" ORDER BY created ASC'
+    url = f"{API_URL}/ex/jira/{cloud_id}/rest/agile/1.0/issue/{parent_key}"
+
+    resp = requests.get(url, headers=headers)
+    if resp.status_code != 200:
+        return jsonify({"error": f"{resp.status_code} - {resp.text}"}), resp.status_code
+
+    issue_json = resp.json()
+
+    # just the keys like "COXDP-7", "COXDP-8", ...
+    subtask_keys = [s["key"] for s in issue_json.get("fields", {}).get("subtasks", [])]
+    print(subtask_keys)
+
+    return subtask_keys
+
 
 
 if __name__ == '__main__':

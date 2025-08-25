@@ -103,6 +103,7 @@ def callback(supports_credentials=True):
         return "No matching Jira site found for your account", 400
 
     session['cloud_id'] = my['id']
+    session['site_url'] = my.get('url')
 
     return redirect('/boards')
 

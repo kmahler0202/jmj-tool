@@ -8,9 +8,6 @@ load_dotenv()
 
 API_URL = "https://api.atlassian.com"
 
-# Legacy placeholder; do not rely on module-level base constructed from env/session.
-# We will construct URLs with the runtime cloud_id stored on the JiraWatcher instance.
-
 class JiraWatcher:
     def __init__(self, access_token, cloud_id):
         if not access_token or not cloud_id:
@@ -22,30 +19,22 @@ class JiraWatcher:
             'Accept': 'application/json'
         }
 
+    def _get_issue_platform_v3(self, issue_key):
+        url = f"{API_URL}/ex/jira/{self.cloud_id}/rest/agile/1.0/issue/{issue_key}"
+        resp = requests.get(url, headers=self.headers)
+        return url, resp
+
     def get_issue(self, issue_key):
-        """Fetch details for a specific issue using the runtime cloud_id (REST API v3)."""
-        url = f"{API_URL}/ex/jira/{self.cloud_id}/rest/api/3/issue/{issue_key}"
-        response = requests.get(url, headers=self.headers)
-        if response.status_code == 401:
-            # Provide detailed diagnostics to help pinpoint the problem
-            print("\n❌ Unauthorized. Your access token may have expired. Please re-authenticate.")
-            print(f"Request URL: {url}")
-            print(f"Auth header present: {'Authorization' in self.headers}")
-            print(f"Auth scheme: {self.headers.get('Authorization', '')[:20]}... (truncated)")
-            try:
-                print(f"Response body: {response.text}")
-            except Exception:
-                pass
-            raise Exception("Unauthorized")
+        """Fetch details for a specific issue using the Agile API (rest/agile/1.0)."""
+        url, response = self._get_issue_platform_v3(issue_key)
         try:
-            response.raise_for_status()  # Raise an exception for other bad status codes
+            response.raise_for_status()
         except requests.exceptions.HTTPError as e:
-            # Log context for easier troubleshooting
-            print("\nHTTP error while calling Jira issues API:")
+            print("\nHTTP error while calling Jira Agile issue API:")
             print(f"Status: {response.status_code}")
             print(f"URL: {url}")
             try:
-                print(f"Response body: {response.text}")
+                print(f"Body: {response.text}")
             except Exception:
                 pass
             raise e

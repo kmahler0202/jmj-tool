@@ -3,11 +3,13 @@ import time
 
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 API_URL = "https://api.atlassian.com"
 
-JIRA_API_BASE = f"{API_URL}/ex/jira/{os.getenv('ATLASSIAN_CLOUD_ID')}/rest/agile/1.0/issue"
+# Legacy placeholder; do not rely on module-level base constructed from env/session.
+# We will construct URLs with the runtime cloud_id stored on the JiraWatcher instance.
 
 class JiraWatcher:
     def __init__(self, access_token, cloud_id):
@@ -21,14 +23,32 @@ class JiraWatcher:
         }
 
     def get_issue(self, issue_key):
-        """Fetches details for a specific issue."""
-        # Using Jira Cloud Platform API v3 for issues
-        url = f"{JIRA_API_BASE}/{issue_key}"
+        """Fetch details for a specific issue using the runtime cloud_id (REST API v3)."""
+        url = f"{API_URL}/ex/jira/{self.cloud_id}/rest/api/3/issue/{issue_key}"
         response = requests.get(url, headers=self.headers)
         if response.status_code == 401:
+            # Provide detailed diagnostics to help pinpoint the problem
             print("\n❌ Unauthorized. Your access token may have expired. Please re-authenticate.")
+            print(f"Request URL: {url}")
+            print(f"Auth header present: {'Authorization' in self.headers}")
+            print(f"Auth scheme: {self.headers.get('Authorization', '')[:20]}... (truncated)")
+            try:
+                print(f"Response body: {response.text}")
+            except Exception:
+                pass
             raise Exception("Unauthorized")
-        response.raise_for_status()  # Raise an exception for other bad status codes
+        try:
+            response.raise_for_status()  # Raise an exception for other bad status codes
+        except requests.exceptions.HTTPError as e:
+            # Log context for easier troubleshooting
+            print("\nHTTP error while calling Jira issues API:")
+            print(f"Status: {response.status_code}")
+            print(f"URL: {url}")
+            try:
+                print(f"Response body: {response.text}")
+            except Exception:
+                pass
+            raise e
         return response.json()
 
     def watch_issue_status(self, issue_key, interval=15):
@@ -54,7 +74,7 @@ class JiraWatcher:
                     print(f"\n✨ Status changed for {issue_key}: '{last_status}' -> '{current_status}'")
                     last_status = current_status
                 else:
-                    print(f".", end="", flush=True) # Print a dot to show it's still running
+                    print(f".", end="", flush=True)  # Print a dot to show it's still running
 
             except requests.exceptions.RequestException as e:
                 print(f"\n\u274c Error while watching {issue_key}: {e}")
@@ -63,7 +83,3 @@ class JiraWatcher:
             except KeyboardInterrupt:
                 print("\n🛑 Watcher stopped by user.")
                 break
-
-
-    # def get_subtasks(self, parent_key: str):
-        

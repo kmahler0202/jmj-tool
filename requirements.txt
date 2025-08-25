@@ -1,6 +1,9 @@
 certifi==2025.7.14
 charset-normalizer==3.4.2
 dotenv==0.9.9
+Flask==3.0.3
+Flask-Cors==4.0.1
+Flask-Session==0.8.0
 idna==3.10
 jsonify==0.5
 python-dotenv==1.1.1
